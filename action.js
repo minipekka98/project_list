@@ -24,14 +24,36 @@ function addTask(){
     {
         let li = document.createElement("li"); //Crea un li
         let check = document.createElement("input"); //Crea un li
+        let p = document.createElement("p"); //Crea un span
         check.type = 'checkbox'
-        li.innerHTML = inputBox.value; //Añadir valor del input
+        li.classList = 'todolist'
+        p.classList= 'muevoestacosa'
+        // li.innerHTML = inputBox.value; //Añadir valor del input
+        p.textContent = inputBox.value;
         li.appendChild(check)
-        listContainer.appendChild(li); //Añadi li generado al contenedor
+        li.appendChild(p)
 
+        
         let deleteBtn = document.createElement("span"); //Crea span
         deleteBtn.innerHTML = "\u00d7"; //Añadir (x) al span
         li.appendChild(deleteBtn); //Añadir span a li
+
+        listContainer.appendChild(li); //Añadi li generado al contenedor
+
+        check.value = 0;
+        check.addEventListener("change", function()
+        {
+            if(check.value == 0)
+            {
+                countMore();
+                check.value = 1;
+            }   
+            else
+            {
+                countLess();
+                check.value = 0;
+            }
+        });
 
     }
 
@@ -40,18 +62,15 @@ function addTask(){
 
 }
 listContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "LI"){
+    if(e.target.tagName === "LI")
+    {
         e.target.classList.toggle("check");
         saveData();
-
     }
-    else if (e.target.tagName === "SPAN"){
+    else if (e.target.tagName === "SPAN")
+    {
         e.target.parentElement.remove();
         saveData();
-
-        //CAMBIAR A CHECK!! - - - - - >
-        counter++;
-        countNumber.textContent = counter;
     }
 }, false );
 
@@ -62,3 +81,15 @@ function showTask(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask ();
+
+function countMore()
+{
+    counter++;
+    countNumber.textContent = counter;
+}
+
+function countLess()
+{
+    counter--;
+    countNumber.textContent = counter;
+}
