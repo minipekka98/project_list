@@ -47,11 +47,14 @@ function addTask(){
             {
                 countMore();
                 check.value = 1;
+                p.classList='clasePrueba'
             }   
             else
             {
                 countLess();
                 check.value = 0;
+                p.classList.remove('clasePrueba')
+
             }
         });
 
@@ -65,6 +68,7 @@ listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI")
     {
         e.target.classList.toggle("check");
+        e.classList = 'clasePrueba'
         saveData();
     }
     else if (e.target.tagName === "SPAN")
