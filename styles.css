@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
 
 *{
     margin: 0;
@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-family: 'Lumanosimo', cursive;
 }
 .row{
     display: flex;
@@ -94,12 +95,17 @@ ul li span:hover{
     text-align: center;
 }
 
+.count_container h3
+{
+    font-family: 'Lumanosimo', cursive;
+}
 
-.todolist{
+.todolist
+{
     display: flex;
 }
 
-
-.muevoestacosa{
+.muevoestacosa
+{
     margin-left: 20px;
 }
