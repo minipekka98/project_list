@@ -4,7 +4,7 @@ const countNumber = document.getElementById("number");
 
 var counter = 0;
 
-// Execute a function when the user presses a key on the keyboard
+// funcion para el enter
 inputBox.addEventListener("keypress", function(event) 
 {
     // If the user presses the "Enter" key on the keyboard
@@ -17,7 +17,7 @@ inputBox.addEventListener("keypress", function(event)
 });
 
 function addTask(){
-    if(inputBox.value === ''){
+    if(inputBox.value === ''){ // hacer confirmacion si el input tiene text
         alert("you must write somethings");
     }
     else
